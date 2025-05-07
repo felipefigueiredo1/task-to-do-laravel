@@ -13,3 +13,7 @@ Route::get('/greet/{name}', function ($name) {
 Route::get('/hallo', function () {
     return redirect('/');
 });
+
+Route::fallback(function () {
+    return 'OK';
+});
