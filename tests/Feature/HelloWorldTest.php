@@ -16,4 +16,15 @@ class HelloWorldTest extends TestCase
         $response = $this->get('/');
         $response->assertContent('Hello World!');
     }
+
+    /**
+     * Testing if that request its redirected to hello
+     *
+     * @return void
+     */
+    public function test_if_the_redirect_of_hallo_to_hello_works(): void
+    {
+        $response = $this->get('/hallo');
+        $response->assertRedirect('/');
+    }
 }

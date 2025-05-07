@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/greet/{name}', function ($name) {
     return 'Hello '.$name.'!';
 });
+
+Route::get('/hallo', function () {
+    return redirect('/');
+});
