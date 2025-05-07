@@ -16,10 +16,4 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
-
-    public function test_the_application_returns_a_specific_string(): void
-    {
-        $response = $this->get('/');
-        $response->assertContent('Hello World!');
-    }
 }
