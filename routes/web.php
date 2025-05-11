@@ -17,3 +17,7 @@ Route::get('/hallo', function () {
 Route::fallback(function () {
     return 'OK';
 });
+
+Route::get('/index', function () {
+    return view('index', ['name' => 'Felipe']);
+});
