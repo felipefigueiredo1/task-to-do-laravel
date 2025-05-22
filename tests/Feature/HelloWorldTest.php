@@ -13,8 +13,8 @@ class HelloWorldTest extends TestCase
      */
     public function test_the_application_returns_a_specific_string(): void
     {
-        $response = $this->get('/');
-        $response->assertContent('Hello World!');
+        $response = $this->get(route('tasks.index'));
+        $response->assertStatus(200);
     }
 
     /**
@@ -25,6 +25,6 @@ class HelloWorldTest extends TestCase
     public function test_if_the_redirect_of_hallo_to_hello_works(): void
     {
         $response = $this->get('/hallo');
-        $response->assertRedirect('/');
+        $response->assertRedirect(route('tasks.index'));
     }
 }
