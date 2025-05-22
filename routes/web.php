@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Entities\Task;
+use Symfony\Component\HttpFoundation\Response;
 
 
 $tasks = [
@@ -81,28 +82,34 @@ $tasks = [
 ];
 
 Route::get('/', function () {
-    return 'Hello World!';
+    return redirect()->route('tasks.index');
 });
 
 Route::get('/greet/{name}', function ($name) {
-    return 'Hello '.$name.'!';
+    return 'Hello ' . $name . '!';
 });
 
 Route::get('/hallo', function () {
-    return redirect('/');
+    return redirect(route('tasks.index'));
 });
 
 Route::fallback(function () {
     return 'OK';
 });
 
-Route::get('/index', function () use ($tasks) {
+Route::get('/tasks', function () use ($tasks) {
     return view('index', [
         'name' => 'Felipe',
         'tasks' => $tasks
     ]);
-});
+})->name('tasks.index');
 
-Route::get('/task/{id}', function($id) {
-    return 'One Single Task';
+
+Route::get('/task/{id}', function ($id) use ($tasks) {
+    $task = collect($tasks)->firstWhere('id', $id);
+
+    if (!$task) {
+        abort(Response::HTTP_NOT_FOUND);
+    }
+    return view('show', ['task' => $task]);
 })->name('tasks.show');

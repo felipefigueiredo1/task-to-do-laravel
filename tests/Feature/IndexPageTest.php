@@ -10,7 +10,7 @@ class IndexPageTest extends TestCase
 {
     public function test_index_displays_properly(): void
     {
-        $response = $this->get('/index');
+        $response = $this->get(route('tasks.index'));
 
         $tasks = [
             new Task(
