@@ -2,10 +2,12 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class HelloWorldTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * Testing if that request returns a string
      *
