@@ -15,7 +15,7 @@
     @error('title')
         {{$errors}}
     @enderror
-    <form method="post" action="{{ route('tasks.update', ['id' => $task->id]) }}">
+    <form method="post" action="{{ route('tasks.update', ['task' => $task]) }}">
         @method('PUT')
         @csrf
 
