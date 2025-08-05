@@ -22,11 +22,8 @@ Route::fallback(function () {
 });
 
 Route::get('/tasks', function () {
-    $tasks = Task::latest()->get();
-
     return view('index', [
-        'name' => 'Felipe',
-        'tasks'=> $tasks
+        'tasks'=> Task::latest()->paginate()
     ]);
 })->name('tasks.index');
 

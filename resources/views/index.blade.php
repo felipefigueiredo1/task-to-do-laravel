@@ -20,4 +20,10 @@
             There are no tasks!
         </div>
     @endforelse
+
+    @if($tasks->count())
+        <div>
+            {{ $tasks->links() }}
+        </div>
+    @endif
 @endsection
