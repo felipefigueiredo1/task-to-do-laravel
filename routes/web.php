@@ -29,7 +29,7 @@ Route::get('/tasks', function () {
 
 Route::get('/tasks/create', function() {
    return view('create');
-});
+})->name('tasks.create');
 
 Route::get('/task/{task}/edit', function (Task $task) {
     return view('edit', [
@@ -58,3 +58,9 @@ Route::delete('/tasks/{task}', function(Task $task) {
 
     return redirect(route('tasks.index'))->with('success', 'Task deleted successfully!');
 })->name('tasks.destroy');
+
+Route::patch('tasks/{task}/toggle-completed', function(Task $task) {
+    $task->toggleComplete();
+
+    return redirect()->back()->with('success', 'Task updated successfully!');
+})->name('tasks.toggle-complete');
