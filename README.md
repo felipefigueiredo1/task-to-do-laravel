@@ -1,61 +1,225 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task To-Do Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Uma aplicação de gerenciamento de tarefas (to-do list) construída com Laravel 12.
 
-## About Laravel
+## 📋 Sobre o Projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Esta é uma aplicação web simples para gerenciar tarefas, permitindo criar, visualizar, editar, excluir e marcar tarefas como concluídas. A aplicação foi desenvolvida usando Laravel 12 e inclui uma interface moderna com Tailwind CSS e Alpine.js.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Funcionalidades
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- ✅ Listar todas as tarefas com paginação
+- ➕ Criar novas tarefas
+- 👁️ Visualizar detalhes de uma tarefa
+- ✏️ Editar tarefas existentes
+- 🗑️ Excluir tarefas
+- ✅ Marcar/desmarcar tarefas como concluídas
+- 📄 Paginação de resultados
 
-## Learning Laravel
+## 🛠️ Tecnologias Utilizadas
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Laravel 12** - Framework PHP
+- **PHP 8.2+** - Linguagem de programação
+- **MySQL** - Banco de dados
+- **Tailwind CSS** - Framework CSS
+- **Alpine.js** - Framework JavaScript
+- **Vite** - Build tool
+- **Laravel Sail** - Ambiente Docker para desenvolvimento
+- **PHPUnit** - Framework de testes
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📦 Requisitos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP 8.2 ou superior
+- Composer
+- Node.js e npm
+- Docker e Docker Compose (para usar Laravel Sail)
+- MySQL (ou usar o MySQL do Docker via Sail)
 
-## Laravel Sponsors
+## 🚀 Instalação
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1. Clone o repositório
 
-### Premium Partners
+```bash
+git clone <url-do-repositorio>
+cd task-to-do-laravel
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+### 2. Instale as dependências do PHP
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Instale as dependências do Node.js
 
-## Code of Conduct
+```bash
+npm install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Configure o ambiente
 
-## Security Vulnerabilities
+Copie o arquivo `.env.example` para `.env` (se existir) ou crie um novo arquivo `.env`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cp .env.example .env
+```
 
-## License
+Configure as variáveis de ambiente no arquivo `.env`, especialmente:
+- `DB_CONNECTION=mysql`
+- `DB_HOST=mysql` (se usar Sail) ou `127.0.0.1`
+- `DB_PORT=3306`
+- `DB_DATABASE=laravel`
+- `DB_USERNAME=sail` (se usar Sail) ou `root`
+- `DB_PASSWORD=password`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 5. Gere a chave da aplicação
+
+```bash
+php artisan key:generate
+```
+
+### 6. Execute as migrações
+
+```bash
+php artisan migrate
+```
+
+### 7. (Opcional) Execute os seeders
+
+```bash
+php artisan db:seed
+```
+
+## 🐳 Usando Laravel Sail (Docker)
+
+Se preferir usar Docker através do Laravel Sail:
+
+### 1. Inicie os containers
+
+```bash
+./vendor/bin/sail up -d
+```
+
+### 2. Execute as migrações
+
+```bash
+./vendor/bin/sail artisan migrate
+```
+
+### 3. Acesse a aplicação
+
+A aplicação estará disponível em `http://localhost`
+
+## 🏃 Executando a Aplicação
+
+### Modo de Desenvolvimento
+
+Para executar o servidor de desenvolvimento e o Vite simultaneamente:
+
+```bash
+composer dev
+```
+
+Ou execute separadamente:
+
+```bash
+# Terminal 1 - Servidor Laravel
+php artisan serve
+
+# Terminal 2 - Vite (assets)
+npm run dev
+```
+
+A aplicação estará disponível em `http://localhost:8000`
+
+### Modo de Produção
+
+```bash
+# Compilar assets
+npm run build
+
+# Otimizar aplicação
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+## 🧪 Testes
+
+Execute os testes com:
+
+```bash
+composer test
+```
+
+Ou:
+
+```bash
+php artisan test
+```
+
+## 📁 Estrutura do Projeto
+
+```
+task-to-do-laravel/
+├── app/
+│   ├── Entities/          # Entidades
+│   ├── Http/
+│   │   ├── Controllers/   # Controladores
+│   │   └── Requests/      # Form Requests (validação)
+│   ├── Models/            # Modelos Eloquent
+│   └── Providers/         # Service Providers
+├── database/
+│   ├── factories/         # Factories para testes
+│   ├── migrations/        # Migrações do banco de dados
+│   └── seeders/           # Seeders
+├── resources/
+│   ├── css/               # Estilos CSS
+│   ├── js/                # JavaScript
+│   └── views/             # Views Blade
+├── routes/
+│   └── web.php            # Rotas web
+└── tests/                 # Testes automatizados
+```
+
+## 🗄️ Estrutura do Banco de Dados
+
+A tabela `tasks` possui os seguintes campos:
+- `id` - Identificador único
+- `title` - Título da tarefa (obrigatório, máximo 255 caracteres)
+- `description` - Descrição curta (obrigatório)
+- `long_description` - Descrição longa (obrigatório)
+- `completed` - Status de conclusão (boolean, padrão: false)
+- `created_at` - Data de criação
+- `updated_at` - Data de atualização
+
+## 🛣️ Rotas Disponíveis
+
+- `GET /` - Redireciona para a lista de tarefas
+- `GET /tasks` - Lista todas as tarefas (paginação)
+- `GET /tasks/create` - Formulário de criação
+- `POST /tasks` - Cria uma nova tarefa
+- `GET /task/{task}` - Exibe detalhes de uma tarefa
+- `GET /task/{task}/edit` - Formulário de edição
+- `PUT /tasks/{task}` - Atualiza uma tarefa
+- `DELETE /tasks/{task}` - Exclui uma tarefa
+- `PATCH /tasks/{task}/toggle-completed` - Alterna status de conclusão
+
+## 📝 Validação
+
+As tarefas são validadas através do `TaskRequest`:
+- `title`: obrigatório, máximo 255 caracteres
+- `description`: obrigatório
+- `long_description`: obrigatório
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+## 👤 Autor
+
+Desenvolvido como projeto de estudo.
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
